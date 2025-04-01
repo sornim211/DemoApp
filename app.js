@@ -20,7 +20,7 @@ app.post('/generate', async (req, res) => {
 
     try {
         const response = await axios.post('https://api.openai.com/v1/completions', {
-            model: 'text-davinci-003',
+            model: 'gpt-3.5-turbo',
             prompt: prompt,
             max_tokens: 100,
             temperature: 0.7,
@@ -30,7 +30,7 @@ app.post('/generate', async (req, res) => {
             },
         });
 
-        const generatedText = response.data.choices[0].text.trim();
+        const generatedText = response.data.choices[0].message.content.trim();
         res.render('index', { prompt, generatedText });
     } catch (error) {
         res.render('index', { error: 'Error generating text. Please try again.' });
