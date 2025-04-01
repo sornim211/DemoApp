@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ChatBot</title>
+    <title>Customer Service ChatBot</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-    <h1>ChatBot</h1>
+    <h1><Meghan-bot></h1>
     <form action="/generate" method="POST">
-        <textarea name="prompt" rows="5" cols="50" placeholder="Enter your text..."></textarea><br>
-        <button type="submit">Generate</button>
+        <textarea name="prompt" rows="5" cols="50" placeholder="Enter your question..."></textarea><br>
+        <button type="submit">Ask</button>
     </form>
-    
-    {{#if generatedText}}
-        <h2>Generated Text:</h2>
-        <p>{{generatedText}}</p>
+
+    {{#if userMessage}}
+        <h3>Your Message:</h3>
+        <p>{{userMessage}}</p>
+    {{/if}}
+
+    {{#if botReply}}
+        <h3>Bot's Reply:</h3>
+        <p>{{botReply}}</p>
     {{/if}}
 
     {{#if error}}
