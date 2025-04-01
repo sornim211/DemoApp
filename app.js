@@ -6,6 +6,10 @@ const path = require('path');
 require('dotenv').config();
 
 const app = express();
+
+// Log the API key to check if it's loaded correctly
+console.log("API Key Loaded:", process.env.OPENAI_API_KEY);
+
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
