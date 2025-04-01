@@ -30,7 +30,7 @@ app.post('/generate', async (req, res) => {
             },
         });
 
-        const generatedText = response.data.choices[0].message.content.trim();
+        const generatedText = response.data.choices[0].text.trim();
         res.render('index', { prompt, generatedText });
     } catch (error) {
         res.render('index', { error: 'Error generating text. Please try again.' });
