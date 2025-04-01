@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Text Generator</title>
+</head>
+<body>
+    <h1>AI Text Generator</h1>
+    <form action="/generate" method="POST">
+        <textarea name="prompt" rows="5" cols="50" placeholder="Enter your prompt..."></textarea><br>
+        <button type="submit">Generate</button>
+    </form>
+    
+    {{#if generatedText}}
+        <h2>Generated Text:</h2>
+        <p>{{generatedText}}</p>
+    {{/if}}
+
+    {{#if error}}
+        <p style="color: red;">{{error}}</p>
+    {{/if}}
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "demoapp",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sornim211/DemoApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sornim211/DemoApp/issues"
+  },
+  "homepage": "https://github.com/sornim211/DemoApp#readme",
+  "dependencies": {
+    "axios": "^1.8.4",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "hbs": "^4.2.0"
+  },
+  "description": ""
+}
