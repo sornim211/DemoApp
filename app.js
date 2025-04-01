@@ -7,9 +7,7 @@ require('dotenv').config();
 
 const app = express();
 
-// Log the API key to check if it's loaded correctly
-console.log("API Key Loaded:", process.env.OPENAI_API_KEY);
-
+// Setup Express view engine and static file serving
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -23,6 +21,10 @@ app.get('/', (req, res) => {
 // Handle the chat submission and get a response from OpenAI
 app.post('/generate', async (req, res) => {
     const userMessage = req.body.prompt;
+
+    if (!userMessage) {
+        return res.render('index', { error: 'Please enter a message to continue.' });
+    }
 
     try {
         // Sending request to OpenAI API
@@ -39,6 +41,7 @@ app.post('/generate', async (req, res) => {
             },
         });
 
+        // Extracting bot's reply from the API response
         const botReply = response.data.choices[0].message.content.trim();
 
         // Render the response with the user input and bot reply
@@ -51,4 +54,6 @@ app.post('/generate', async (req, res) => {
 
 // Start the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
